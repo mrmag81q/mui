@@ -1,14 +1,18 @@
 @font-face {
   font-family: 'msi';
-  src: url('../public/Iransans/eot/IRANSansWeb.eot') format('eot');
-  src: url('../public/Iransans/ttf/IRANSansWeb.ttf') format('ttf');
+  src: url('../Iransans/eot/IRANSansWeb.eot') format('eot');
+  src: url('../Iransans/ttf/IRANSansWeb.ttf') format('ttf');
+  src: url('../Iransans/woff/IRANSansWeb.woff') format('woff');
+  src: url('../Iransans/woff2/IRANSansWeb.woff2') format('woff2');
   
 }
 *{
-  font-family: 'msi';
+  font-family: 'msi' !important;
 }
 body{
   direction: rtl;
   text-align: right;
-  font-family: 'msi';
+  font-family: 'msi' !important;
+  margin: 0;
+  padding: 0;
 }

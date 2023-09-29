@@ -1,22 +1,35 @@
 
-
-import styled from '@emotion/styled';
-import Button from '@mui/material/Button'
- 
-
-
+import { Grid } from '@mui/material';
+import Navbar from './components/navbar';
+import Rightbar from './components/Rightbar';
+import Feed from './components/Feed';
+import Leftbar from './components/Leftbar';
+import Add from './components/Add';
+const UseStyle = (theme)=>({
+  left:{
+    [theme.breakpoints.down('sm')]: {
+      display:"none"
+    },
+  }
+})
 function App() {
-  const UseStyle = styled(Button)(({theme})=>({
-      backgroundColor : theme.palette.primary.main,
-      color : "white"
-    }));
+ const classes =(e)=>UseStyle(e);
   return (
     <div>
-      
-      <UseStyle variant="contained" >
-        s
-      </UseStyle>
-    
+      <Navbar/>
+      <Grid container>
+        <Grid item md={2} sm={2} xs={2}>
+          <Rightbar/>
+        </Grid>
+        <Grid item sm={7} xs={10}>
+          <Feed/>
+        </Grid>
+        <Grid item sm={3} sx={(theme) => classes(theme).left}>
+          <Leftbar/>
+        </Grid>
+      </Grid>
+
+      <Add />
     </div>
   );
 }
