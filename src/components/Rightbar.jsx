@@ -28,7 +28,7 @@ const UseStyle = (theme) => ({
   item: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       marginBottom: theme.spacing(3),
       cursor: 'Pointer',
