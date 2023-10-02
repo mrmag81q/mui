@@ -7,7 +7,7 @@ import Leftbar from './components/Leftbar';
 import Add from './components/Add';
 const UseStyle = (theme)=>({
   left:{
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display:"none"
     },
   }
@@ -18,13 +18,13 @@ function App() {
     <div>
       <Navbar/>
       <Grid container>
-        <Grid item md={2} sm={2} xs={2}>
+        <Grid item md={2} sm={1} xs={1.5} >
           <Rightbar/>
         </Grid>
-        <Grid item sm={7} xs={10}>
+        <Grid item md={7} sm={11}  xs={10}>
           <Feed/>
         </Grid>
-        <Grid item sm={3} sx={(theme) => classes(theme).left}>
+        <Grid item md={3} sx={(theme) => classes(theme).left}>
           <Leftbar/>
         </Grid>
       </Grid>

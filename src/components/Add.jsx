@@ -1,4 +1,5 @@
 import {
+  Alert,
   Box,
   Button,
   Container,
@@ -18,12 +19,16 @@ import {
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 
-import { AddBox } from '@mui/icons-material';
+import {
+  AddBox,
+  Cancel,
+  CancelScheduleSendRounded,
+  Check,
+  Clear,
+  Close,
+} from '@mui/icons-material';
 import { useState } from 'react';
 import React from 'react';
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={7} ref={ref} variant="filled" {...props} />;
-});
 const UseStyle = (theme) => ({
   fab: {
     position: 'fixed',
@@ -171,7 +176,18 @@ function Add() {
         anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
         onClose={handleClose}
       >
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+        <Alert
+          onClose={handleClose}
+          variant="filled"
+          icon={<Check fontSize="medium" sx={{ marginLeft: '5px' }} />}
+          action={
+            <Clear
+              fontSize="medium"
+              sx={{ marginRight: '55px', marginBottom: '4px' }}
+            />
+          }
+          sx={{ width: '100%', direction: 'rtl', alignItems: 'center' }}
+        >
           پست با موفقیت ارسال شد!
         </Alert>
       </Snackbar>
