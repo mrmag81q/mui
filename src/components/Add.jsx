@@ -7,6 +7,7 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
+  Grid,
   InputLabel,
   MenuItem,
   Modal,
@@ -17,16 +18,8 @@ import {
   TextField,
   Tooltip,
 } from '@mui/material';
-import MuiAlert from '@mui/material/Alert';
 
-import {
-  AddBox,
-  Cancel,
-  CancelScheduleSendRounded,
-  Check,
-  Clear,
-  Close,
-} from '@mui/icons-material';
+import { AddBox, Check, Clear } from '@mui/icons-material';
 import { useState } from 'react';
 import React from 'react';
 const UseStyle = (theme) => ({
@@ -46,12 +39,12 @@ const UseStyle = (theme) => ({
     left: 0,
     margin: 'auto',
     [theme.breakpoints.down('sm')]: {
-      height: '100vh',
-      width: '100vw',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 'auto',
+      width: 'auto',
     },
-  },
-  form: {
-    padding: theme.spacing(2),
   },
   item: {
     marginBottom: theme.spacing(3),
@@ -89,84 +82,86 @@ function Add() {
       </Tooltip>
       <Modal open={open}>
         <Container sx={(theme) => classes(theme).Container}>
-          <form sx={(theme) => classes(theme).form} autoComplete="off">
-            <Box sx={(theme) => classes(theme).item}>
-              <TextField
-                placeholder="عنوان"
-                variant="standard"
-                sx={{ width: '100%' }}
-              />
-            </Box>
-            <Box sx={(theme) => classes(theme).item}>
-              <TextField
-                placeholder="پیام شما"
-                multiline
-                rows={4}
-                variant="outlined"
-                sx={{ width: '100%' }}
-              />
-            </Box>
-            <Box sx={(theme) => classes(theme).item}>
-              <FormControl
-                sx={(theme) => classes(theme).select}
-                variant="standard"
-              >
-                <InputLabel id="انتخاب" sx={(theme) => classes(theme).label}>
-                  انتخاب
-                </InputLabel>
-                <Select>
-                  <MenuItem value="public">عمومی</MenuItem>
-                  <MenuItem value="خصوصی">خصوصی</MenuItem>
-                  <MenuItem value="friends">نمایش برای دوستان</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Box sx={(theme) => classes(theme).item}>
-              <FormLabel id="demo-radio-buttons-group-label">
-                دسترسی کامنت گذاری؟
-              </FormLabel>
-              <RadioGroup>
-                <FormControlLabel
-                  value="برای همه"
-                  control={<Radio size="small" />}
-                  label="برای همه"
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <form autoComplete="off">
+              <Box sx={(theme) => classes(theme).item}>
+                <TextField
+                  placeholder="عنوان"
+                  variant="standard"
+                  sx={{ width: '100%' }}
                 />
-                <FormControlLabel
-                  value="برای دوستان"
-                  control={<Radio size="small" />}
-                  label="برای دوستان"
+              </Box>
+              <Box sx={(theme) => classes(theme).item}>
+                <TextField
+                  placeholder="پیام شما"
+                  multiline
+                  rows={4}
+                  variant="outlined"
+                  sx={{ width: '100%' }}
                 />
-                <FormControlLabel
-                  value="هیچکس"
-                  control={<Radio size="small" />}
-                  label="هیچکس"
-                />
-                <FormControlLabel
-                  value="دسترسی ویژه"
-                  disabled
-                  control={<Radio size="small" />}
-                  label="دسترسی ویژه (برای اکانت های سفارشی)"
-                />
-              </RadioGroup>
-            </Box>
-            <Box sx={(theme) => classes(theme).item}>
-              <Button
-                variant="outlined"
-                color="primary"
-                sx={{ marginLeft: '10px' }}
-                onClick={handleClick}
-              >
-                ارسال
-              </Button>
-              <Button
-                variant="outlined"
-                color="error"
-                onClick={() => setOpen(false)}
-              >
-                انصراف
-              </Button>
-            </Box>
-          </form>
+              </Box>
+              <Box sx={(theme) => classes(theme).item}>
+                <FormControl
+                  sx={(theme) => classes(theme).select}
+                  variant="standard"
+                >
+                  <InputLabel id="انتخاب" sx={(theme) => classes(theme).label}>
+                    انتخاب
+                  </InputLabel>
+                  <Select>
+                    <MenuItem value="public">عمومی</MenuItem>
+                    <MenuItem value="خصوصی">خصوصی</MenuItem>
+                    <MenuItem value="friends">نمایش برای دوستان</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+              <Box sx={(theme) => classes(theme).item}>
+                <FormLabel id="demo-radio-buttons-group-label">
+                  دسترسی کامنت گذاری؟
+                </FormLabel>
+                <RadioGroup>
+                  <FormControlLabel
+                    value="برای همه"
+                    control={<Radio size="small" />}
+                    label="برای همه"
+                  />
+                  <FormControlLabel
+                    value="برای دوستان"
+                    control={<Radio size="small" />}
+                    label="برای دوستان"
+                  />
+                  <FormControlLabel
+                    value="هیچکس"
+                    control={<Radio size="small" />}
+                    label="هیچکس"
+                  />
+                  <FormControlLabel
+                    value="دسترسی ویژه"
+                    disabled
+                    control={<Radio size="small" />}
+                    label="دسترسی ویژه (برای اکانت های سفارشی)"
+                  />
+                </RadioGroup>
+              </Box>
+              <Box sx={(theme) => classes(theme).item}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  sx={{ marginLeft: '10px' }}
+                  onClick={handleClick}
+                >
+                  ارسال
+                </Button>
+                <Button
+                  variant="outlined"
+                  color="error"
+                  onClick={() => setOpen(false)}
+                >
+                  انصراف
+                </Button>
+              </Box>
+            </form>
+          </Box>
         </Container>
       </Modal>
 
